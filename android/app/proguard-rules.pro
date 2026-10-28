@@ -6,6 +6,9 @@
 -keep class io.flutter.** { *; }
 -keep class io.flutter.embedding.** { *; }
 
+# Flutter Deferred Components / Play Core (classes opcionais da Play Store referenciadas pelo Flutter Engine)
+-dontwarn com.google.android.play.core.**
+
 # Google ML Kit Image Labeling plugin
 -keep class com.google_mlkit_image_labeling.** { *; }
 -keep class com.google.mlkit.** { *; }
