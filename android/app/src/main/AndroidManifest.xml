@@ -1,8 +1,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Permissões necessárias para captura de fotos pela câmera e leitura da galeria -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+
     <application
         android:label="IA Embarcada"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+
+        <!-- Declara o modelo de classificação de imagens para o Google Play Services -->
+        <meta-data
+            android:name="com.google.mlkit.vision.DEPENDENCIES"
+            android:value="ica" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true"

@@ -49,7 +49,9 @@ class MlKitImageLabelerService implements ImageLabelerService {
       );
     } finally {
       // Libera os recursos nativos alocados pelo modelo no dispositivo
-      await labeler.close();
+      try {
+        await labeler.close();
+      } catch (_) {}
     }
   }
 }
