@@ -1,0 +1,108 @@
+# -----------------------------------------------------------------------------
+# Flutter / Dart
+# -----------------------------------------------------------------------------
+**/doc/api/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+/build/
+
+# Web compilation artifacts
+lib/generated_plugin_registrant.dart
+
+# Symbol processing & obfuscation
+undecorated_symbols
+app.*.symbols
+
+# -----------------------------------------------------------------------------
+# FVM (Flutter Version Management)
+# -----------------------------------------------------------------------------
+# Ignora caches e links do SDK, mantendo fvm_config.json (.fvmrc fica na raiz)
+.fvm/*
+!.fvm/fvm_config.json
+
+# -----------------------------------------------------------------------------
+# IDEs & Editores
+# -----------------------------------------------------------------------------
+# Visual Studio Code
+.vscode/
+
+# Android Studio / IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+.idea_modules/
+
+# -----------------------------------------------------------------------------
+# Android & Configurações Locais da Máquina
+# -----------------------------------------------------------------------------
+android/app/debug
+android/app/profile
+android/app/release
+android/local.properties
+**/android/.gradle/
+**/android/**/build/
+**/android/captures/
+**/android/.cxx/
+**/android/gradle-wrapper.jar
+
+# Chaves de assinatura & propriedades sensíveis
+*.keystore
+*.jks
+key.properties
+
+# -----------------------------------------------------------------------------
+# iOS & macOS
+# -----------------------------------------------------------------------------
+**/ios/**/GeneratedPluginRegistrant.h
+**/ios/**/GeneratedPluginRegistrant.m
+**/ios/**/Flutter/Generated.xcconfig
+**/ios/**/Flutter/flutter_export_environment.sh
+**/ios/**/Flutter/App.framework
+**/ios/**/Flutter/Flutter.framework
+**/ios/**/Flutter/Flutter.podspec
+**/ios/Pods/
+**/ios/.symlinks/
+**/ios/Flutter/ephemeral/
+**/ios/Runner.xcworkspace/xcuserdata/
+**/ios/Runner.xcodeproj/xcuserdata/
+**/ios/Runner.xcodeproj/project.xcworkspace/xcuserdata/
+**/macos/Flutter/ephemeral/
+**/macos/Pods/
+**/macos/.symlinks/
+
+# -----------------------------------------------------------------------------
+# Windows & Linux (Desktop)
+# -----------------------------------------------------------------------------
+**/windows/flutter/ephemeral/
+**/linux/flutter/ephemeral/
+
+# -----------------------------------------------------------------------------
+# Banco de Dados SQLite Local
+# -----------------------------------------------------------------------------
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+
+# -----------------------------------------------------------------------------
+# Sistema Operacional & Arquivos Temporários
+# -----------------------------------------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+[Dd]esktop.ini
+*.log
+*.class
+*.pyc
+*.swp
+.history/
+.buildlog/
