@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../domain/analysis_result.dart';
+import '../../models/analysis_result.dart';
 
 /// Exibição dos rótulos em formato de grade de cartões com destaque visual.
 class LabelsCardsView extends StatelessWidget {

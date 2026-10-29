@@ -1,4 +1,4 @@
-import '../domain/analysis_result.dart';
+import '../models/analysis_result.dart';
 
 /// Contrato para serviços de rotulagem de imagens.
 /// Permite injetar implementações mockadas em testes de widget e de unidade.

@@ -1,5 +1,5 @@
 import 'package:sqflite/sqflite.dart';
-import '../domain/app_settings.dart';
+import '../models/app_settings.dart';
 import 'app_database.dart';
 
 /// Contrato para persistência e recuperação das configurações do app.
@@ -92,8 +92,8 @@ class SqfliteSettingsRepository implements SettingsRepository {
   }
 }
 
-/// Implementação em memória de [SettingsRepository] para execução na Web (Edge/Chrome)
-/// ou em plataformas sem suporte nativo a SQLite, evitando erros de inicialização.
+/// Implementação em memória de [SettingsRepository], usada como fallback quando
+/// o SQLite não pode ser aberto e nos testes de widget.
 class InMemorySettingsRepository implements SettingsRepository {
   InMemorySettingsRepository([this._settings = const AppSettings()]);
 

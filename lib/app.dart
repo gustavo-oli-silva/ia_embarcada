@@ -1,12 +1,10 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'core/theme/app_theme.dart';
-import 'features/image_labeling/data/image_labeler_service.dart';
-import 'features/image_labeling/data/mlkit_image_labeler_service.dart';
-import 'features/image_labeling/data/web_image_labeler_service.dart';
-import 'features/image_labeling/presentation/labeling_controller.dart';
-import 'features/image_labeling/presentation/labeling_page.dart';
-import 'features/settings/presentation/settings_controller.dart';
+import 'theme/app_theme.dart';
+import 'services/image_labeler_service.dart';
+import 'services/mlkit_image_labeler_service.dart';
+import 'controllers/labeling_controller.dart';
+import 'views/labeling_page.dart';
+import 'controllers/settings_controller.dart';
 
 /// Widget raiz da aplicação IA Embarcada.
 class App extends StatelessWidget {
@@ -23,10 +21,8 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final effectiveService = imageLabelerService ??
-        (kIsWeb
-            ? const WebImageLabelerService()
-            : const MlKitImageLabelerService());
+    final effectiveService =
+        imageLabelerService ?? const MlKitImageLabelerService();
 
     final effectiveLabelingController = labelingController ??
         LabelingController(

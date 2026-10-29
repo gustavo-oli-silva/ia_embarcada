@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../domain/app_settings.dart';
-import 'settings_controller.dart';
+import '../models/app_settings.dart';
+import '../controllers/settings_controller.dart';
 
 /// Tela de ajustes do aplicativo onde o usuário configura o limiar de confiança
 /// da inferência e a forma visual de exibição dos resultados.

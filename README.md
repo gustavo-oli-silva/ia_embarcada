@@ -31,42 +31,38 @@ Cada rótulo identificado pelo modelo recebe uma pontuação entre `0.0` e `1.0`
 
 ---
 
-## 4. Estrutura do Código (Feature-First)
+## 4. Estrutura do Código (MVCS)
 
-O projeto está organizado segundo o padrão **Feature-First**:
+O projeto segue o padrão **MVCS** (Model, View, Controller, Service):
 
 ```text
 lib/
-├── app.dart                                # MaterialApp, injeção de dependências e tema
-├── main.dart                               # Ponto de entrada, inicialização do SQLite
-├── core/
-│   └── theme/app_theme.dart                # Tema visual Material 3
-└── features/
-    ├── image_labeling/                     # Feature: Reconhecimento de Imagens
-    │   ├── domain/analysis_result.dart     # Modelos de domínio (LabelResult e AnalysisResult)
-    │   ├── data/
-    │   │   ├── image_labeler_service.dart  # Interface abstrata do rotulador
-    │   │   └── mlkit_image_labeler_service.dart # 👈 ONDE A IA É EXECUTADA
-    │   └── presentation/
-    │       ├── labeling_controller.dart    # Gerenciamento de estado da análise
-    │       ├── labeling_page.dart          # Tela principal (foto, métricas e resultados)
-    │       └── widgets/
-    │           ├── labels_list_view.dart   # Visualização em lista com barras de progresso
-    │           └── labels_cards_view.dart  # Visualização em grade de cartões
-    └── settings/                           # Feature: Ajustes e Parâmetros
-        ├── domain/app_settings.dart        # Configurações (limiar e modo de exibição)
-        ├── data/
-        │   ├── app_database.dart           # Conexão e criação da tabela no SQLite
-        │   └── settings_repository.dart    # Leitura e gravação no SQLite via sqflite
-        └── presentation/
-            ├── settings_controller.dart    # ChangeNotifier para controle reativo
-            └── settings_page.dart          # Tela com Slider, chips 0.3/0.6/0.9 e toggle
+├── main.dart                         # Ponto de entrada, inicialização do SQLite
+├── app.dart                          # MaterialApp, injeção de dependências e tema
+├── theme/app_theme.dart              # Tema visual Material 3
+├── models/                           # Dados da aplicação
+│   ├── analysis_result.dart          # LabelResult e AnalysisResult
+│   └── app_settings.dart             # Configurações (limiar e modo de exibição)
+├── views/                            # Telas e widgets
+│   ├── labeling_page.dart            # Tela principal (foto, métricas e resultados)
+│   ├── settings_page.dart            # Tela com Slider, chips 0.3/0.6/0.9 e toggle
+│   └── widgets/
+│       ├── labels_list_view.dart     # Visualização em lista com barras de progresso
+│       └── labels_cards_view.dart    # Visualização em grade de cartões
+├── controllers/                      # Estado reativo (ChangeNotifier)
+│   ├── labeling_controller.dart      # Captura da foto e fluxo da análise
+│   └── settings_controller.dart      # Leitura e alteração dos ajustes
+└── services/                         # Acesso a recursos externos
+    ├── image_labeler_service.dart    # Interface abstrata do rotulador
+    ├── mlkit_image_labeler_service.dart  # 👈 ONDE A IA É EXECUTADA
+    ├── app_database.dart             # Conexão e criação da tabela no SQLite
+    └── settings_repository.dart      # Leitura e gravação dos ajustes no SQLite
 ```
 
 ### Onde a IA roda no código (4 passos):
 
-1. **Captura da foto:** [`labeling_controller.dart`](file:///lib/features/image_labeling/presentation/labeling_controller.dart) via `ImagePicker.pickImage()`.
-2. **Conversão do formato:** [`mlkit_image_labeler_service.dart`](file:///lib/features/image_labeling/data/mlkit_image_labeler_service.dart) instancia `InputImage.fromFilePath(imagePath)`.
+1. **Captura da foto:** [`labeling_controller.dart`](lib/controllers/labeling_controller.dart) via `ImagePicker.pickImage()`.
+2. **Conversão do formato:** [`mlkit_image_labeler_service.dart`](lib/services/mlkit_image_labeler_service.dart) instancia `InputImage.fromFilePath(imagePath)`.
 3. **Configuração com o limiar:** `ImageLabelerOptions(confidenceThreshold: threshold)`.
 4. **Inferência on-device:** `await labeler.processImage(inputImage)`. Aqui o processador local do celular executa o modelo neural.
 

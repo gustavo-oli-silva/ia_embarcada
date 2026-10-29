@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:ia_embarcada/features/settings/data/settings_repository.dart';
-import 'package:ia_embarcada/features/settings/domain/app_settings.dart';
-import 'package:ia_embarcada/features/settings/presentation/settings_controller.dart';
-import 'package:ia_embarcada/features/settings/presentation/settings_page.dart';
+import 'package:ia_embarcada/services/settings_repository.dart';
+import 'package:ia_embarcada/models/app_settings.dart';
+import 'package:ia_embarcada/controllers/settings_controller.dart';
+import 'package:ia_embarcada/views/settings_page.dart';
 
 class FakeSettingsRepository implements SettingsRepository {
   FakeSettingsRepository([this.settings = const AppSettings()]);

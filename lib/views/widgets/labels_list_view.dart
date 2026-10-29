@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../domain/analysis_result.dart';
+import '../../models/analysis_result.dart';
 
 /// Exibição dos rótulos em formato de lista detalhada, com barra de progresso.
 class LabelsListView extends StatelessWidget {

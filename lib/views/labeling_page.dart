@@ -1,10 +1,9 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import '../../settings/domain/app_settings.dart';
-import '../../settings/presentation/settings_controller.dart';
-import '../../settings/presentation/settings_page.dart';
-import 'labeling_controller.dart';
+import '../models/app_settings.dart';
+import '../controllers/settings_controller.dart';
+import 'settings_page.dart';
+import '../controllers/labeling_controller.dart';
 import 'widgets/labels_cards_view.dart';
 import 'widgets/labels_list_view.dart';
 
@@ -66,37 +65,6 @@ class _LabelingPageState extends State<LabelingPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                if (kIsWeb) ...[
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 14,
-                      vertical: 10,
-                    ),
-                    decoration: BoxDecoration(
-                      color: theme.colorScheme.secondaryContainer,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.public,
-                          color: theme.colorScheme.onSecondaryContainer,
-                          size: 20,
-                        ),
-                        const SizedBox(width: 10),
-                        Expanded(
-                          child: Text(
-                            'Modo Navegador (Edge): Interface e ajustes ativos. A IA embarcada real (ML Kit) roda diretamente no processador do Android via APK.',
-                            style: theme.textTheme.bodySmall?.copyWith(
-                              color: theme.colorScheme.onSecondaryContainer,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                ],
                 // Barra de botões de captura
                 Row(
                   children: [

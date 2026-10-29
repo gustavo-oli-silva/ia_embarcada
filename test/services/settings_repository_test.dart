@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:ia_embarcada/features/settings/data/app_database.dart';
-import 'package:ia_embarcada/features/settings/data/settings_repository.dart';
-import 'package:ia_embarcada/features/settings/domain/app_settings.dart';
+import 'package:ia_embarcada/services/app_database.dart';
+import 'package:ia_embarcada/services/settings_repository.dart';
+import 'package:ia_embarcada/models/app_settings.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
 void main() {

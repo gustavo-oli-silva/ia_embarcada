@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:image_picker/image_picker.dart';
-import '../data/image_labeler_service.dart';
-import '../domain/analysis_result.dart';
+import '../services/image_labeler_service.dart';
+import '../models/analysis_result.dart';
 
 typedef ImagePickFunction = Future<XFile?> Function(ImageSource source);
 

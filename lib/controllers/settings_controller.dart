@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
-import '../data/settings_repository.dart';
-import '../domain/app_settings.dart';
+import '../services/settings_repository.dart';
+import '../models/app_settings.dart';
 
 /// Controlador observável para gerenciamento das preferências do usuário.
 class SettingsController extends ChangeNotifier {

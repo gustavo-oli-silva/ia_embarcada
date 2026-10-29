@@ -2,15 +2,15 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:ia_embarcada/features/image_labeling/data/image_labeler_service.dart';
-import 'package:ia_embarcada/features/image_labeling/domain/analysis_result.dart';
-import 'package:ia_embarcada/features/image_labeling/presentation/labeling_controller.dart';
-import 'package:ia_embarcada/features/image_labeling/presentation/labeling_page.dart';
-import 'package:ia_embarcada/features/image_labeling/presentation/widgets/labels_cards_view.dart';
-import 'package:ia_embarcada/features/image_labeling/presentation/widgets/labels_list_view.dart';
-import 'package:ia_embarcada/features/settings/data/settings_repository.dart';
-import 'package:ia_embarcada/features/settings/domain/app_settings.dart';
-import 'package:ia_embarcada/features/settings/presentation/settings_controller.dart';
+import 'package:ia_embarcada/services/image_labeler_service.dart';
+import 'package:ia_embarcada/models/analysis_result.dart';
+import 'package:ia_embarcada/controllers/labeling_controller.dart';
+import 'package:ia_embarcada/views/labeling_page.dart';
+import 'package:ia_embarcada/views/widgets/labels_cards_view.dart';
+import 'package:ia_embarcada/views/widgets/labels_list_view.dart';
+import 'package:ia_embarcada/services/settings_repository.dart';
+import 'package:ia_embarcada/models/app_settings.dart';
+import 'package:ia_embarcada/controllers/settings_controller.dart';
 
 class FakeSettingsRepository implements SettingsRepository {
   FakeSettingsRepository([this.settings = const AppSettings()]);

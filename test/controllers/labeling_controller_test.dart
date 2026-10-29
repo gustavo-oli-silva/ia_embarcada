@@ -1,9 +1,9 @@
 import 'dart:typed_data';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:ia_embarcada/features/image_labeling/data/image_labeler_service.dart';
-import 'package:ia_embarcada/features/image_labeling/domain/analysis_result.dart';
-import 'package:ia_embarcada/features/image_labeling/presentation/labeling_controller.dart';
+import 'package:ia_embarcada/services/image_labeler_service.dart';
+import 'package:ia_embarcada/models/analysis_result.dart';
+import 'package:ia_embarcada/controllers/labeling_controller.dart';
 
 class FakeImageLabelerService implements ImageLabelerService {
   FakeImageLabelerService({

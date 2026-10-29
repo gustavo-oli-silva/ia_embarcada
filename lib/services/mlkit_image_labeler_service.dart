@@ -1,5 +1,5 @@
 import 'package:google_mlkit_image_labeling/google_mlkit_image_labeling.dart';
-import '../domain/analysis_result.dart';
+import '../models/analysis_result.dart';
 import 'image_labeler_service.dart';
 
 /// Implementação de [ImageLabelerService] que utiliza o Google ML Kit
