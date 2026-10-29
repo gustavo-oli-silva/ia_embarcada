@@ -3,10 +3,14 @@ class LabelResult {
   const LabelResult({
     required this.text,
     required this.confidence,
+    this.originalText,
   });
 
-  /// Nome do rótulo reconhecido (em inglês pelo modelo base do ML Kit).
+  /// Nome do rótulo exibido na tela (traduzido para português).
   final String text;
+
+  /// Rótulo original devolvido pelo modelo do ML Kit (em inglês).
+  final String? originalText;
 
   /// Grau de certeza do modelo entre 0.0 e 1.0.
   final double confidence;

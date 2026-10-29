@@ -42,7 +42,8 @@ lib/
 ├── theme/app_theme.dart              # Tema visual Material 3
 ├── models/                           # Dados da aplicação
 │   ├── analysis_result.dart          # LabelResult e AnalysisResult
-│   └── app_settings.dart             # Configurações (limiar e modo de exibição)
+│   ├── app_settings.dart             # Configurações (limiar e modo de exibição)
+│   └── label_translations.dart       # Dicionário inglês → português dos 447 rótulos
 ├── views/                            # Telas e widgets
 │   ├── labeling_page.dart            # Tela principal (foto, métricas e resultados)
 │   ├── settings_page.dart            # Tela com Slider, chips 0.3/0.6/0.9 e toggle
@@ -136,5 +137,5 @@ O comando gerará APKs otimizados na pasta `build/app/outputs/flutter-apk/`:
 ## 8. Limitações do Modelo Pré-Treinado
 
 * **Vocabulário Genérico:** O modelo base do ML Kit reconhece cerca de 400 categorias comuns (ex: comida, móveis, plantas, animais).
-* **Idioma:** Os rótulos retornados estão em **inglês**.
+* **Idioma:** O modelo devolve os rótulos em **inglês**. O app traduz para português de forma offline, usando um dicionário fixo em [`label_translations.dart`](lib/models/label_translations.dart), e mostra o original em inglês logo abaixo.
 * **Sem distinções hiperespecíficas:** O modelo reconhece *"Plant"* ou *"Flower"*, mas não identifica doenças foliares específicas ou espécies raras.

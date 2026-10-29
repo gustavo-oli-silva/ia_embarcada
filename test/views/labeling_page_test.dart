@@ -67,7 +67,7 @@ void main() {
 
     final labelingController = LabelingController(
       service: TestImageLabelerService(const [
-        LabelResult(text: 'Coffee', confidence: 0.94),
+        LabelResult(text: 'Café', originalText: 'Coffee', confidence: 0.94),
         LabelResult(text: 'Drink', confidence: 0.81),
       ]),
       pickImageFn: (_) async => XFile.fromData(
@@ -93,6 +93,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.byType(LabelsListView), findsOneWidget);
+    expect(find.text('Café'), findsOneWidget);
     expect(find.text('Coffee'), findsOneWidget);
     expect(find.text('94%'), findsOneWidget);
     expect(find.text('Drink'), findsOneWidget);
@@ -108,7 +109,11 @@ void main() {
 
     final labelingController = LabelingController(
       service: TestImageLabelerService(const [
-        LabelResult(text: 'Laptop', confidence: 0.89),
+        LabelResult(
+          text: 'Computador',
+          originalText: 'Computer',
+          confidence: 0.89,
+        ),
       ]),
       pickImageFn: (_) async => XFile.fromData(
         Uint8List(0),
@@ -132,7 +137,8 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.byType(LabelsCardsView), findsOneWidget);
-    expect(find.text('Laptop'), findsOneWidget);
+    expect(find.text('Computador'), findsOneWidget);
+    expect(find.text('Computer'), findsOneWidget);
   });
 
   testWidgets('LabelingPage exibe aviso quando nenhum rótulo supera o limiar',

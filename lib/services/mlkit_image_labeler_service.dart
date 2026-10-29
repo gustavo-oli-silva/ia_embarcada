@@ -1,5 +1,6 @@
 import 'package:google_mlkit_image_labeling/google_mlkit_image_labeling.dart';
 import '../models/analysis_result.dart';
+import '../models/label_translations.dart';
 import 'image_labeler_service.dart';
 
 /// Implementação de [ImageLabelerService] que utiliza o Google ML Kit
@@ -34,10 +35,12 @@ class MlKitImageLabelerService implements ImageLabelerService {
 
       stopwatch.stop();
 
-      // Mapeia para o modelo de domínio da aplicação e ordena por confiança decrescente
+      // Mapeia para o modelo de domínio da aplicação, traduz o rótulo para
+      // português (fora da medição de tempo) e ordena por confiança decrescente
       final results = labels
           .map((label) => LabelResult(
-                text: label.label,
+                text: translateLabel(label.label),
+                originalText: label.label,
                 confidence: label.confidence,
               ))
           .toList()
